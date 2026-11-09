@@ -562,7 +562,169 @@
       document.querySelectorAll("[data-filter]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(function(x){x.classList.toggle("active",x===b);});document.querySelectorAll("[data-category]").forEach(function(c){c.hidden=(f!=="all"&&c.dataset.category!==f);});});});
       document.querySelectorAll("[data-segment]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.segment;document.querySelectorAll("[data-segment]").forEach(function(x){var active=x===b;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active));});document.querySelectorAll("[data-perspective]").forEach(function(p){p.classList.toggle("active",p.dataset.perspective===f);});});});
 
-      /* NEW_MARKETING_MODEL_INSERT_HERE */
+      /* Interactive marketing and sales scenario: 30m RUB per year across all channels */
+      const fmYears=[2027,2028,2029],fmChannels=["doctor","clinic","dealer"];
+      const fmNames={doctor:"Частнопрактикующие врачи",clinic:"Клиники",dealer:"Дистрибьюторы"};
+      const fmInfo={doctor:"Только прямые продажи врачам, не включая покупки через дистрибьюторов.",clinic:"Только прямые продажи клиникам, без закупок через дистрибьюторов.",dealer:"Отгрузки дистрибьюторам без повторного учёта последующей перепродажи."};
+      const fmGroups=[
+        {id:"common",name:"Общие проекты для всех каналов",items:[["platform","Обучающая онлайн-платформа","Курсы, личный кабинет, видеоуроки",2500000],["forum","Собственный форум для клиентов","Спикеры, площадка и проведение",6000000],["content","Научный контент и эксперты","Публикации, видео, экспертные выступления",2000000],["analytics","Маркетинговые системы и аналитика","Сервисы и измерение результатов",1500000],["reserve","Резерв новых инициатив","Тестирование маркетинговых гипотез",1000000]]},
+        {id:"doctor",name:"Частнопрактикующие врачи",items:[["doctorDigital","Цифровое привлечение врачей","Поисковое и профессиональное продвижение",4000000],["doctorEducation","Практические занятия и вебинары","Образовательные мероприятия",2500000]]},
+        {id:"clinic",name:"Клиники",items:[["clinicDigital","Цифровое привлечение клиник","Продвижение услуг для профессиональной аудитории",2000000],["clinicPrograms","Партнёрские программы клиник","Обучение и совместные мероприятия",2500000]]},
+        {id:"dealer",name:"Дистрибьюторы",items:[["dealerRegions","Региональные мероприятия","Форумы, реклама и выездные встречи",3000000],["dealerTraining","Обучение партнёров","Материалы и подготовка менеджеров",3000000]]}
+      ];
+      const fmFieldGroups=[
+        {name:"Клиентская база",items:[["opening","Активных покупателей на начало 2027 года, шт.","Вводится только для 2027",0,10000000],["adjustment","Корректировка базы с прошлого года, шт.","Допускается отрицательная поправка",-10000000,10000000],["leads","Подходящих потенциальных покупателей за год, шт.","Квалифицированные обращения",0,10000000],["conversion","Конверсия в первую закупку, %","Доля обращений, ставших покупателями",0,100],["churn","Годовой отток покупателей, %","Доля ушедших клиентов из начальной базы",0,100]]},
+        {name:"Количество закупок",items:[["orders","Заказов на покупателя за год, шт.","Средняя частота заказов",0,365],["units","Флаконов в одном заказе, шт.","Средний размер заказа",0,100000]]},
+        {name:"Отпускные цены и скидки",items:[["price","Цена одного флакона до скидки, ₽","Демонстрационное значение",0,10000000],["discount","Средняя скидка клиенту, %","Не входит в маркетинговый бюджет",0,100]]}
+      ];
+      const fmBaseBudget={limit:30000000,discountLimit:0,items:{}};
+      fmGroups.forEach(g=>g.items.forEach(i=>fmBaseBudget.items[i[0]]=i[3]));
+      const fmDefaults={
+        doctor:[{opening:100,adjustment:0,leads:450,conversion:20,churn:15,orders:4,units:8,price:4200,discount:3},{opening:100,adjustment:0,leads:640,conversion:21,churn:13,orders:4.6,units:9,price:4400,discount:3},{opening:100,adjustment:0,leads:900,conversion:23,churn:11,orders:5.2,units:10,price:4650,discount:3}],
+        clinic:[{opening:30,adjustment:0,leads:140,conversion:18,churn:10,orders:6,units:20,price:3900,discount:6},{opening:30,adjustment:0,leads:190,conversion:20,churn:9,orders:6.5,units:23,price:4100,discount:6},{opening:30,adjustment:0,leads:260,conversion:22,churn:8,orders:7,units:26,price:4300,discount:6}],
+        dealer:[{opening:8,adjustment:0,leads:40,conversion:15,churn:9,orders:6,units:110,price:2700,discount:8},{opening:8,adjustment:0,leads:55,conversion:18,churn:8,orders:7,units:135,price:2850,discount:8},{opening:8,adjustment:0,leads:70,conversion:20,churn:7,orders:8,units:155,price:3000,discount:8}],
+        budgets:[0,1,2].map(()=>JSON.parse(JSON.stringify(fmBaseBudget)))
+      };
+      const fmStoreKey="igenica_marketing_release_2026_11_09";
+      const fmClone=v=>JSON.parse(JSON.stringify(v));
+      const fmSafe=(v,min,max,def)=>{if(v===null||v===undefined||v==="")return def;const n=Number(v);return Number.isFinite(n)?Math.min(max,Math.max(min,n)):def;};
+      function fmRestore(){
+        const state=fmClone(fmDefaults);
+        try{
+          const saved=JSON.parse(localStorage.getItem(fmStoreKey)||"null");
+          if(saved){
+            fmChannels.forEach(ch=>[0,1,2].forEach(y=>{if(!saved[ch]||!saved[ch][y])return;fmFieldGroups.forEach(g=>g.items.forEach(i=>state[ch][y][i[0]]=fmSafe(saved[ch][y][i[0]],i[3],i[4],state[ch][y][i[0]])));}));
+            [0,1,2].forEach(y=>{if(!saved.budgets||!saved.budgets[y])return;const a=saved.budgets[y],b=state.budgets[y];b.limit=fmSafe(a.limit,0,100000000000,b.limit);b.discountLimit=fmSafe(a.discountLimit,0,100000000000,b.discountLimit);fmGroups.forEach(g=>g.items.forEach(i=>{if(a.items)b.items[i[0]]=fmSafe(a.items[i[0]],0,100000000000,b.items[i[0]]);}));});
+          }
+        }catch(e){}
+        return state;
+      }
+      let fmState=fmRestore(),fmYear=0,fmChannel="doctor";
+      const fmFormatter=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:1});
+      const fmDecimal=new Intl.NumberFormat("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1});
+      const fmNum=n=>fmFormatter.format(n),fmRub=n=>fmNum(Math.round(n))+" ₽",fmMoney=n=>fmDecimal.format(n/1000000)+" млн ₽",fmRatio=(a,b)=>b>0?fmDecimal.format(a/b)+" ₽":"нет расходов";
+      const fmTxt=(id,value)=>{const n=document.getElementById(id);if(n)n.textContent=value;};
+      const fmSave=()=>{try{localStorage.setItem(fmStoreKey,JSON.stringify(fmState));}catch(e){}};
+      const fmGroupSum=(y,id)=>fmGroups.filter(g=>!id||g.id===id).reduce((s,g)=>s+g.items.reduce((a,i)=>a+fmState.budgets[y].items[i[0]],0),0);
+      function fmCalculate(){
+        const rows=[],prior={};
+        for(let y=0;y<3;y++){
+          const b=fmState.budgets[y],row={year:fmYears[y],channels:{},groups:{},revenue:0,units:0,discounts:0,budget:fmGroupSum(y),limit:b.limit,discountLimit:b.discountLimit};
+          fmGroups.forEach(g=>row.groups[g.id]=fmGroupSum(y,g.id));
+          fmChannels.forEach(ch=>{
+            const p=fmState[ch][y],start=y===0?p.opening:Math.max(0,prior[ch].end+p.adjustment),added=Math.round(p.leads*p.conversion/100),lost=Math.round(start*p.churn/100),end=Math.max(0,start+added-lost);
+            const units=(start+end)/2*p.orders*p.units,price=p.price*(1-p.discount/100),revenue=units*price,discounts=units*p.price-revenue;
+            row.channels[ch]={opening:start,newClients:added,end:end,units:units,price:price,revenue:revenue,discounts:discounts,marketing:row.groups[ch]};
+            prior[ch]=row.channels[ch];row.revenue+=revenue;row.units+=units;row.discounts+=discounts;
+          });
+          rows.push(row);
+        }
+        return rows;
+      }
+      function fmBuild(){
+        document.querySelectorAll("[data-fm-year]").forEach(b=>{const a=Number(b.dataset.fmYear)===fmYear;b.classList.toggle("active",a);b.setAttribute("aria-pressed",String(a));});
+        document.querySelectorAll("[data-fm-channel]").forEach(b=>{const a=b.dataset.fmChannel===fmChannel;b.classList.toggle("active",a);b.setAttribute("aria-pressed",String(a));});
+        document.getElementById("fmBudgetLimit").value=fmState.budgets[fmYear].limit;
+        document.getElementById("fmDiscountLimit").value=fmState.budgets[fmYear].discountLimit;
+        const budget=document.getElementById("fmBudgetInputs");budget.replaceChildren();
+        fmGroups.forEach(g=>{
+          const card=document.createElement("div");card.className="finance-budget-group";
+          const head=document.createElement("div");head.className="finance-budget-group-head";const title=document.createElement("div"),h=document.createElement("h4"),small=document.createElement("small"),total=document.createElement("strong");
+          h.textContent=g.name;small.textContent=g.id==="common"?"Не дублируем между каналами":"Профильный маркетинг аудитории";total.dataset.fmGroupTotal=g.id;title.append(h,small);head.append(title,total);card.appendChild(head);
+          g.items.forEach(i=>{
+            const row=document.createElement("div");row.className="finance-budget-item";const labelGroup=document.createElement("div"),label=document.createElement("label"),hint=document.createElement("small"),input=document.createElement("input");
+            label.textContent=i[1]+", ₽/год";label.htmlFor="fm-budget-"+i[0];hint.textContent=i[2];labelGroup.append(label,hint);
+            input.id="fm-budget-"+i[0];input.type="number";input.inputMode="decimal";input.min=0;input.max=100000000000;input.step=10000;input.dataset.fmBudget=i[0];input.value=fmState.budgets[fmYear].items[i[0]];
+            row.append(labelGroup,input);card.appendChild(row);
+          });budget.appendChild(card);
+        });
+        const inputs=document.getElementById("fmInputs");inputs.replaceChildren();
+        fmFieldGroups.forEach(g=>{
+          const section=document.createElement("div");section.className="finance-field-group";const h=document.createElement("h4");h.textContent=g.name;section.appendChild(h);
+          const grid=document.createElement("div");grid.className="finance-field-grid";
+          g.items.forEach(i=>{
+            if((i[0]==="opening"&&fmYear!==0)||(i[0]==="adjustment"&&fmYear===0))return;
+            const box=document.createElement("div");box.className="finance-field";const label=document.createElement("label"),input=document.createElement("input"),tip=document.createElement("small");
+            label.htmlFor="fm-field-"+i[0];label.textContent=i[1];tip.textContent=i[2];input.id="fm-field-"+i[0];input.type="number";input.inputMode="decimal";input.min=i[3];input.max=i[4];input.step=0.1;input.dataset.fmField=i[0];input.value=fmState[fmChannel][fmYear][i[0]];
+            box.append(label,input,tip);grid.appendChild(box);
+          });section.appendChild(grid);inputs.appendChild(section);
+        });
+      }
+      function fmOverview(rows){
+        const revenue=rows.reduce((a,r)=>a+r.revenue,0),budget=rows.reduce((a,r)=>a+r.budget,0),discounts=rows.reduce((a,r)=>a+r.discounts,0);
+        fmTxt("fmTotalRevenue",fmMoney(revenue));fmTxt("fmTotalBudget",fmMoney(budget));fmTxt("fmTotalRatio",fmRatio(revenue,budget));fmTxt("fmTotalDiscounts",fmMoney(discounts));
+        const stages=document.getElementById("fmStages"),chart=document.getElementById("fmComparison");stages.replaceChildren();chart.replaceChildren();
+        const max=Math.max(...rows.map(r=>r.revenue));
+        rows.forEach((r,i)=>{
+          const stage=document.createElement("div");stage.className="finance-stage";
+          const tag=document.createElement("small"),heading=document.createElement("h4"),number=document.createElement("strong"),sub=document.createElement("p"),meta=document.createElement("p");
+          tag.textContent="Этап "+(i+1)+" · "+r.year;heading.textContent=["Создание системы","Масштабирование спроса","Федеральное развитие"][i];number.textContent=fmMoney(r.revenue);sub.textContent="Выручка за год";meta.className="stage-meta";meta.textContent="Маркетинг: "+fmMoney(r.budget)+" · "+fmNum(Math.round(r.units))+" флаконов";stage.append(tag,heading,number,sub,meta);stages.appendChild(stage);
+          const line=document.createElement("div");line.className="finance-chart-row";const year=document.createElement("span"),track=document.createElement("div"),fill=document.createElement("div"),end=document.createElement("strong");
+          year.textContent=r.year;track.className="finance-track";fill.className="finance-track-inner";fill.style.width=(max>0?r.revenue/max*100:0)+"%";end.textContent=fmMoney(r.revenue);
+          fmChannels.forEach(ch=>{const bar=document.createElement("span");bar.className="finance-part "+ch;bar.style.width=(r.revenue>0?r.channels[ch].revenue/r.revenue*100:0)+"%";bar.title=fmNames[ch]+": "+fmMoney(r.channels[ch].revenue);fill.appendChild(bar);});
+          track.appendChild(fill);line.append(year,track,end);chart.appendChild(line);
+        });
+      }
+      function fmBudgetRender(rows){
+        const r=rows[fmYear],diff=r.limit-r.budget;
+        fmTxt("fmBudgetYear",r.year);fmTxt("fmBudgetSpent",fmMoney(r.budget));fmTxt("fmBudgetBalance",(diff<0?"−":"")+fmMoney(Math.abs(diff)));fmTxt("fmBudgetUse",r.limit>0?fmNum(r.budget/r.limit*100)+"%":r.budget>0?"Лимит 0 ₽":"0%");
+        const fill=document.getElementById("fmBudgetFill");fill.style.width=(r.limit>0?Math.min(100,r.budget/r.limit*100):r.budget>0?100:0)+"%";fill.classList.toggle("overspend",diff<0);document.getElementById("fmBudgetBalance").classList.toggle("negative",diff<0);
+        fmTxt("fmBudgetStatus",diff<0?"Превышение лимита на "+fmMoney(-diff)+". Сократите расходы или измените годовой лимит.":diff>0?"Нераспределённый остаток: "+fmMoney(diff)+". Он не считается расходом.":"Все статьи соответствуют годовому лимиту маркетинга.");
+        fmGroups.forEach(g=>{const n=document.querySelector('[data-fm-group-total="'+g.id+'"]');if(n)n.textContent=fmMoney(r.groups[g.id]);});
+        fmTxt("fmYearDiscounts",fmMoney(r.discounts));
+        if(r.discountLimit===0){fmTxt("fmDiscountStatus","Без лимита");fmTxt("fmDiscountBalance","Лимит не задан");}
+        else{const d=r.discountLimit-r.discounts;fmTxt("fmDiscountStatus",d<0?"Превышен":"В пределах лимита");fmTxt("fmDiscountBalance",(d<0?"−":"")+fmMoney(Math.abs(d)));}
+      }
+      function fmChannelRender(rows){
+        const r=rows[fmYear],d=r.channels[fmChannel];
+        fmTxt("fmCurrentStage",r.year+" / этап "+(fmYear+1));fmTxt("fmEditorTitle",fmNames[fmChannel]);fmTxt("fmEditorIntro",fmInfo[fmChannel]);fmTxt("fmStartingBase",fmNum(d.opening));fmTxt("fmBaseHint",fmYear===0?"Начальная база 2027":"Перенос с прошлого года и поправка");
+        fmTxt("fmSelectedRevenue",fmMoney(d.revenue));fmTxt("fmNewClients",fmNum(d.newClients));fmTxt("fmEndClients",fmNum(d.end));fmTxt("fmSelectedUnits",fmNum(Math.round(d.units)));fmTxt("fmNetPrice",fmRub(d.price));fmTxt("fmChannelBudget",fmMoney(d.marketing));fmTxt("fmChannelDiscounts",fmMoney(d.discounts));fmTxt("fmPerBuyerSpend",d.newClients>0?fmRub(d.marketing/d.newClients):"Нет новых покупателей");fmTxt("fmChannelRatio",fmRatio(d.revenue,d.marketing));
+      }
+      function fmTableRender(rows){
+        const definitions=[
+          ["ДОХОД · продажи частнопрактикующим врачам, млн ₽",r=>r.channels.doctor.revenue,"money",""],
+          ["ДОХОД · продажи клиникам, млн ₽",r=>r.channels.clinic.revenue,"money",""],
+          ["ДОХОД · продажи дистрибьюторам, млн ₽",r=>r.channels.dealer.revenue,"money",""],
+          ["ИТОГО · вся выручка, млн ₽",r=>r.revenue,"money","finance-emphasis"],
+          ["Объём проданных флаконов, шт.",r=>r.units,"units",""],
+          ["СКИДКИ · уменьшение выручки, млн ₽",r=>r.discounts,"money","finance-expense"],
+          ["РАСХОД · общие маркетинговые проекты, млн ₽",r=>r.groups.common,"money","finance-expense"],
+          ["РАСХОД · маркетинг частнопрактикующих врачей, млн ₽",r=>r.groups.doctor,"money","finance-expense"],
+          ["РАСХОД · маркетинг клиник, млн ₽",r=>r.groups.clinic,"money","finance-expense"],
+          ["РАСХОД · маркетинг дистрибьюторов, млн ₽",r=>r.groups.dealer,"money","finance-expense"],
+          ["ИТОГО · расходы на маркетинг, млн ₽",r=>r.budget,"money","finance-emphasis"],
+          ["Годовой лимит маркетинга, млн ₽",r=>r.limit,"money",""],
+          ["Нераспределённый остаток / превышение, млн ₽",r=>r.limit-r.budget,"money",""],
+          ["Выручка на 1 ₽ маркетинга, ₽",r=>r.budget>0?r.revenue/r.budget:null,"ratio",""]
+        ];
+        const body=document.querySelector("#fmTable tbody");body.replaceChildren();
+        definitions.forEach(def=>{
+          const tr=document.createElement("tr");tr.className=def[3];const label=document.createElement("td");label.textContent=def[0];tr.appendChild(label);
+          let total=0;
+          rows.forEach(r=>{const value=def[1](r),cell=document.createElement("td");if(value!==null)total+=value;cell.textContent=def[2]==="units"?fmNum(Math.round(value)):def[2]==="ratio"?(value===null?"нет расходов":fmDecimal.format(value)+" ₽"):fmMoney(value);if(value!==null&&value<0)cell.className="finance-over";tr.appendChild(cell);});
+          const all=document.createElement("td");if(def[2]==="ratio"){const revenue=rows.reduce((a,r)=>a+r.revenue,0),marketing=rows.reduce((a,r)=>a+r.budget,0);all.textContent=marketing>0?fmDecimal.format(revenue/marketing)+" ₽":"нет расходов";}else all.textContent=def[2]==="units"?fmNum(Math.round(total)):fmMoney(total);if(def[2]!=="ratio"&&total<0)all.className="finance-over";tr.appendChild(all);body.appendChild(tr);
+        });
+      }
+      function fmRender(rebuild){if(rebuild)fmBuild();const rows=fmCalculate();fmOverview(rows);fmBudgetRender(rows);fmChannelRender(rows);fmTableRender(rows);fmSave();}
+      document.querySelectorAll("[data-fm-year]").forEach(b=>b.addEventListener("click",()=>{fmYear=Number(b.dataset.fmYear);fmRender(true);}));
+      document.querySelectorAll("[data-fm-channel]").forEach(b=>b.addEventListener("click",()=>{fmChannel=b.dataset.fmChannel;fmRender(true);}));
+      document.getElementById("fmBudgetInputs").addEventListener("input",e=>{const key=e.target.dataset.fmBudget;if(!key)return;fmState.budgets[fmYear].items[key]=fmSafe(e.target.value,0,100000000000,0);fmRender(false);});
+      document.getElementById("fmInputs").addEventListener("input",e=>{const key=e.target.dataset.fmField;if(!key)return;let spec=null;fmFieldGroups.forEach(g=>g.items.forEach(i=>{if(i[0]===key)spec=i;}));if(!spec)return;fmState[fmChannel][fmYear][key]=fmSafe(e.target.value,spec[3],spec[4],0);fmRender(false);});
+      document.getElementById("fmBudgetLimit").addEventListener("input",e=>{fmState.budgets[fmYear].limit=fmSafe(e.target.value,0,100000000000,0);fmRender(false);});
+      document.getElementById("fmDiscountLimit").addEventListener("input",e=>{fmState.budgets[fmYear].discountLimit=fmSafe(e.target.value,0,100000000000,0);fmRender(false);});
+      document.querySelectorAll("#fmBudgetInputs,#fmInputs,#fmBudgetLimit,#fmDiscountLimit").forEach(root=>root.addEventListener("change",e=>{const x=e.target;if(!x.matches('input[type="number"]'))return;if(x.id==="fmBudgetLimit")x.value=fmState.budgets[fmYear].limit;else if(x.id==="fmDiscountLimit")x.value=fmState.budgets[fmYear].discountLimit;else if(x.dataset.fmBudget)x.value=fmState.budgets[fmYear].items[x.dataset.fmBudget];else if(x.dataset.fmField)x.value=fmState[fmChannel][fmYear][x.dataset.fmField];}));
+      document.getElementById("fmReset").addEventListener("click",()=>{if(!confirm("Вернуть демонстрационные параметры всех трёх лет?"))return;fmState=fmClone(fmDefaults);fmRender(true);});
+      document.getElementById("fmExport").addEventListener("click",()=>{
+        const rows=[["Год","Категория","Показатель","Значение","Единица"]],models=fmCalculate();
+        models.forEach((r,y)=>{
+          [["Выручка",r.revenue,"₽"],["Маркетинг",r.budget,"₽"],["Годовой лимит",r.limit,"₽"],["Скидки",r.discounts,"₽"],["Флаконы",r.units,"шт."]].forEach(x=>rows.push([r.year,"Итого",x[0],x[1],x[2]]));
+          fmGroups.forEach(g=>g.items.forEach(i=>rows.push([r.year,"Статья маркетинга / "+g.name,i[1],fmState.budgets[y].items[i[0]],"₽"])));
+          fmChannels.forEach(ch=>{const p=fmState[ch][y],d=r.channels[ch],vals=[["Клиенты на начало",d.opening,"шт."],["Обращения",p.leads,"шт."],["Конверсия",p.conversion,"%"],["Отток",p.churn,"%"],["Новые клиенты",d.newClients,"шт."],["Клиенты на конец",d.end,"шт."],["Заказы на клиента",p.orders,"шт."],["Флаконов в заказе",p.units,"шт."],["Цена до скидки",p.price,"₽"],["Скидка",p.discount,"%"],["Цена после скидки",d.price,"₽"],["Флаконов за год",d.units,"шт."],["Выручка",d.revenue,"₽"],["Сумма скидок",d.discounts,"₽"]];vals.forEach(x=>rows.push([r.year,fmNames[ch],x[0],x[1],x[2]]));});
+        });
+        const quoted=x=>'"'+String(x).replace(/"/g,'""')+'"';const csv="\uFEFF"+rows.map(r=>r.map(quoted).join(";")).join("\r\n");const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));const link=document.createElement("a");link.href=url;link.download="igenica_marketing_2027_2029.csv";document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+      });
+      fmRender(true);
+
       document.getElementById("printBtn").addEventListener("click",function(){window.print();});
       document.getElementById("shareBtn").addEventListener("click",function(){var b=this;var old=b.textContent;if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(location.href).then(function(){b.textContent="Ссылка скопирована ✓";setTimeout(function(){b.textContent=old},1800)},function(){b.textContent="Скопируйте адрес из браузера";});}else{b.textContent="Скопируйте адрес из браузера";setTimeout(function(){b.textContent=old},2000);}});
     })();
