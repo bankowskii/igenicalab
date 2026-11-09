@@ -464,7 +464,7 @@
             <small>Прямые продажи врачам + клиники + отгрузки дистрибьюторам</small>
           </div>
           <div class="finance-kpi">
-            <span>Валовой доход за три года</span><strong id="fmTotalGross">—</strong>
+            <span>Маржинальный доход за три года</span><strong id="fmTotalGross">—</strong>
             <small>После себестоимости и переменных расходов на поставку</small>
           </div>
           <div class="finance-kpi">
@@ -527,7 +527,7 @@
                 <div><span>Новые покупатели</span><strong id="fmNewClients">—</strong></div>
                 <div><span>Продано флаконов</span><strong id="fmSelectedUnits">—</strong></div>
                 <div><span>Средняя реализованная цена</span><strong id="fmNetPrice">—</strong></div>
-                <div><span>Валовой доход</span><strong id="fmSelectedGross">—</strong></div>
+                <div><span>Маржинальный доход</span><strong id="fmSelectedGross">—</strong></div>
                 <div><span>Маржинальность продаж</span><strong id="fmSelectedMargin">—</strong></div>
                 <div class="finance-result-wide"><span>Результат после затрат на привлечение и программы</span><strong id="fmSelectedContribution">—</strong></div>
               </div>
@@ -538,8 +538,8 @@
               <p><strong>База на конец года:</strong> начальная база + новые покупатели − отток.</p>
               <p><strong>Объём:</strong> средняя активная база × заказов в год × флаконов в заказе.</p>
               <p><strong>Выручка:</strong> объём × цена × (1 − скидка).</p>
-              <p><strong>Валовой доход:</strong> выручка − себестоимость продукции − переменные расходы на доставку и обработку.</p>
-              <p><strong>Результат канала:</strong> валовой доход − стоимость привлечения новых покупателей − отдельный бюджет на обучение, поддержку и программы.</p>
+              <p><strong>Маржинальный доход:</strong> выручка − себестоимость продукции − переменные расходы на доставку и обработку.</p>
+              <p><strong>Результат канала:</strong> маржинальный доход − стоимость привлечения новых покупателей − отдельный бюджет на обучение, поддержку и программы.</p>
               <p class="source">Для планирования средняя активная база рассчитывается по начальной и конечной базе. Это упрощённая годовая модель без помесячной сезонности и графика движения денежных средств.</p>
             </div>
           </div>
@@ -760,7 +760,7 @@
         var stages=document.getElementById("fmStages"),bar=document.getElementById("fmComparison");stages.textContent="";bar.textContent="";
         model.forEach(function(y,i){
           var block=document.createElement("div");block.className="finance-stage";
-          block.innerHTML='<small>Этап '+(i+1)+' · '+y.year+'</small><h4>'+fmStagesLabels[i]+'</h4><div class="stage-revenue">'+fmMln(y.revenue)+'</div><p>Выручка за год</p><p class="stage-secondary">Валовой доход: <strong>'+fmMln(y.gross)+'</strong></p><p>Результат после модельных затрат: <strong>'+fmMln(y.afterOverhead)+'</strong></p><p>Объём: '+fmNum(Math.round(y.units))+' флаконов</p>';
+          block.innerHTML='<small>Этап '+(i+1)+' · '+y.year+'</small><h4>'+fmStagesLabels[i]+'</h4><div class="stage-revenue">'+fmMln(y.revenue)+'</div><p>Выручка за год</p><p class="stage-secondary">Маржинальный доход: <strong>'+fmMln(y.gross)+'</strong></p><p>Результат после модельных затрат: <strong>'+fmMln(y.afterOverhead)+'</strong></p><p>Объём: '+fmNum(Math.round(y.units))+' флаконов</p>';
           stages.appendChild(block);
           var row=document.createElement("div");row.className="finance-chart-row";
           var year=document.createElement("span");year.textContent=String(y.year);row.appendChild(year);
@@ -775,7 +775,7 @@
           ["Выручка: дистрибьюторы",function(y){return y.channels.dealer.revenue;}],
           ["Выручка всех каналов",function(y){return y.revenue;},"finance-row-highlight"],
           ["Продано флаконов, шт.",function(y){return y.units;},"units"],
-          ["Валовой доход",function(y){return y.gross;}],
+          ["Маржинальный доход",function(y){return y.gross;}],
           ["Привлечение новых покупателей",function(y){return y.acquisition;}],
           ["Программы, обучение и поддержка",function(y){return y.programs;}],
           ["Общие расходы компании",function(y){return y.overhead;}],
@@ -819,7 +819,7 @@
         fmState=fmClone(fmDefaults);fmRenderAll(true);
       });
       document.getElementById("fmExport").addEventListener("click",function(){
-        var calculated=fmCalculate();var lines=[["Год","Канал","Активные на начало","Обращения","Конверсия %","Отток %","Новые покупатели","Активные на конец","Заказов в год","Флаконов в заказе","Отпускная цена","Скидка %","Себестоимость","Логистика на флакон","Стоимость привлечения покупателя","Программы","Флаконов за год","Выручка","Валовой доход","Результат канала","Общие расходы за год","Результат года"]];
+        var calculated=fmCalculate();var lines=[["Год","Канал","Активные на начало","Обращения","Конверсия %","Отток %","Новые покупатели","Активные на конец","Заказов в год","Флаконов в заказе","Отпускная цена","Скидка %","Себестоимость","Логистика на флакон","Стоимость привлечения покупателя","Программы","Флаконов за год","Выручка","Маржинальный доход","Результат канала","Общие расходы за год","Результат года"]];
         calculated.forEach(function(year,i){fmChannels.forEach(function(ch){
           var p=fmState[ch][i],d=year.channels[ch];
           lines.push([year.year,fmTitles[ch],d.opening,p.leads,p.conversion,p.churn,d.newClients,d.end,p.orders,p.units,p.price,p.discount,p.cogs,p.shipping,p.cac,p.program,d.units,d.revenue,d.gross,d.contribution,year.overhead,year.afterOverhead]);
