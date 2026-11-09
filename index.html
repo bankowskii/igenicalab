@@ -39,6 +39,25 @@
   .risk-row{display:grid;grid-template-columns:180px 1fr 110px;gap:15px;align-items:start;border-top:1px solid var(--line);padding:18px 0;font-size:12px}.risk-row:first-child{border-top:0}.risk-row strong{font-size:12px}.risk-row span{color:#657686}.risk-level{justify-self:end;font-size:10px;font-weight:800;padding:5px 10px;border-radius:50px;color:#b2744e;background:#fcf0e6}.risk-level.critical{color:#ac5454;background:#fceceb}
   .timeline{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.year{padding:30px 25px;min-height:430px;display:flex;flex-direction:column}.year h3{font-size:29px;letter-spacing:-.05em}.year .year-title{font-size:16px;font-weight:800;letter-spacing:-.025em;margin:8px 0 18px}.year ul{font-size:12px;color:var(--soft);padding-left:19px;line-height:1.95;margin:0 0 25px}.year .year-end{margin-top:auto;font-size:11px;padding-top:18px;border-top:1px solid var(--line);font-weight:800;color:var(--teal)}.year.featured{background:linear-gradient(150deg,#e0f4ef,#f6fbf9);border-color:#bbe0d8}
   .calc{display:grid;grid-template-columns:1.05fr .95fr;gap:15px}.calc .control{margin-bottom:28px}.control .control-head{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:800;margin-bottom:14px}.control output{color:var(--teal)}input[type=range]{width:100%;accent-color:var(--teal);cursor:pointer}.calc-total{font-size:clamp(36px,4.7vw,62px);letter-spacing:-.07em;line-height:1.1;font-weight:800;color:#fff;margin:25px 0 14px}.calc-breakdown{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:35px}.calc-breakdown>div{border-top:1px solid #496072;padding-top:15px}.calc-breakdown strong{color:#fff;font-size:20px;display:block}.calc-breakdown span{font-size:10px;color:#a5bcc9}.calc-disclaimer{font-size:11px;color:#d0dee5;line-height:1.75;margin:18px 0 0}
+
+  /* Трехлетняя интерактивная модель */
+  .finance-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:27px 0 18px}
+  .finance-kpi{padding:22px 19px;border:1px solid var(--line);background:#fff;border-radius:20px;display:flex;flex-direction:column;min-height:180px}
+  .finance-kpi-primary{background:linear-gradient(135deg,#e0f5ed,#fff);border-color:#bde4d8}
+  .finance-kpi span{font-size:11px;font-weight:800;color:#748a98;line-height:1.6}
+  .finance-kpi strong{font-size:clamp(24px,2.2vw,35px);font-weight:800;letter-spacing:-.055em;line-height:1.2;margin:17px 0 9px;overflow-wrap:anywhere}
+  .finance-kpi small{font-size:10px;color:#90a0ab;line-height:1.6;margin-top:auto}
+  .finance-stage-panel{padding:27px}.finance-panel-top{display:flex;justify-content:space-between;align-items:flex-start;gap:25px;margin-bottom:22px}.finance-panel-top h3{font-size:27px;margin:15px 0 7px}.finance-panel-top p{font-size:12px;max-width:550px;margin:0}.finance-export,.finance-reset{flex:none;border:1px solid #d3e4e1;color:#207970;background:#f2faf7;border-radius:12px;padding:12px 15px;font-size:11px;font-weight:800;text-align:center}.finance-export:hover,.finance-reset:hover{background:#e0f3ed}
+  .finance-stages{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.finance-stage{position:relative;background:#f6f9fb;border:1px solid var(--line);padding:19px;border-radius:17px;min-width:0}.finance-stage:not(:last-child):after{content:"→";position:absolute;right:-17px;top:49%;transform:translateY(-50%);font-size:20px;font-weight:800;color:#2b9f93;z-index:3}.finance-stage>small{font-size:10px;color:#438f86;font-weight:800;text-transform:uppercase;letter-spacing:.045em}.finance-stage h4{font-size:15px;margin:7px 0 17px}.finance-stage .stage-revenue{font-size:clamp(23px,2.4vw,33px);font-weight:800;line-height:1.2;letter-spacing:-.05em;overflow-wrap:anywhere}.finance-stage p{font-size:11px;margin:7px 0;color:#738694}.finance-stage .stage-secondary{padding-top:13px;border-top:1px solid #e1e9ed;margin-top:13px}.finance-stage .stage-secondary strong{color:#236f68}.finance-legend{display:flex;gap:17px;flex-wrap:wrap;margin:27px 0 14px;font-size:11px;font-weight:700;color:#8091a0}.finance-legend>span{display:flex;gap:7px;align-items:center}.finance-dot{display:inline-block;width:9px;height:9px;border-radius:50%}.finance-dot.physicians,.finance-stack.physicians{background:#238c82}.finance-dot.clinics,.finance-stack.clinics{background:#738ab4}.finance-dot.distributors,.finance-stack.distributors{background:#d4aa72}.finance-comparison{display:flex;flex-direction:column;gap:12px}.finance-chart-row{display:grid;grid-template-columns:39px 1fr 105px;gap:10px;align-items:center;font-size:12px;font-weight:800;color:#7c8d9a}.finance-chart-track{width:100%;height:20px;background:#f1f5f6;border-radius:7px;overflow:hidden}.finance-chart-fill{display:flex;height:100%;overflow:hidden;border-radius:7px;min-width:0}.finance-stack{height:100%;min-width:0}.finance-chart-row strong{text-align:right;color:#1c3b48;font-size:12px}
+  .finance-editor-header{display:flex;align-items:end;justify-content:space-between;gap:18px;margin:54px 0 22px}.finance-editor-header h3{font-size:clamp(23px,3vw,31px);margin:8px 0}.finance-editor-header p{font-size:12px;max-width:610px;margin:0}.finance-selector,.finance-years{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}.finance-tab,.finance-year{font-size:11px;font-weight:800;padding:12px 15px;border-radius:12px;border:1px solid var(--line);background:white;color:#7b8d9c;transition:.15s}.finance-tab.active,.finance-year.active{background:var(--navy);color:#fff;border-color:var(--navy)}.finance-tab:focus-visible,.finance-year:focus-visible,.finance-export:focus-visible,.finance-reset:focus-visible{outline:3px solid #65cabb;outline-offset:3px}.finance-years{margin:17px 0}.finance-year{border-radius:40px;padding:9px 17px}
+  .finance-workspace{display:grid;grid-template-columns:minmax(0,1.13fr) minmax(0,.87fr);gap:15px;align-items:start}.finance-editor{padding:28px}.finance-channel-head{display:flex;justify-content:space-between;align-items:start;gap:18px;margin-bottom:22px}.finance-channel-head h3{font-size:25px;margin:13px 0 8px}.finance-channel-head p{font-size:12px;margin:0;max-width:490px}.finance-auto{text-align:right;flex:none;background:#eaf5f1;border-radius:14px;padding:14px;min-width:125px;max-width:190px}.finance-auto>span{display:block;font-size:10px;color:#658c89;font-weight:800}.finance-auto strong{display:block;font-size:25px;letter-spacing:-.05em;line-height:1.2;margin:5px 0}.finance-auto small{display:block;font-size:9px;line-height:1.4;color:#7e9b99}
+  .finance-form-group{border-top:1px solid var(--line);padding:20px 0 8px}.finance-form-group h4{font-size:13px;margin:0 0 12px}.finance-input-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.finance-input-wrap{display:flex;flex-direction:column;gap:5px;min-width:0}.finance-input-wrap label{font-size:10px;color:#697c8c;font-weight:800;line-height:1.5;min-height:30px}.finance-input-wrap input{width:100%;min-width:0;padding:12px;border:1px solid #d7e2e8;border-radius:11px;background:#f9fbfc;color:#152c39;font-size:15px;font-weight:800;font-variant-numeric:tabular-nums}.finance-input-wrap input:focus{outline:2px solid #69c4b5;border-color:transparent;background:#fff}.finance-input-wrap small{font-size:9px;color:#9aabb8;line-height:1.5;min-height:25px}
+  .finance-output{display:flex;flex-direction:column;gap:15px}.finance-result{padding:27px}.finance-main-num{font-size:clamp(31px,3.6vw,50px);line-height:1.2;letter-spacing:-.06em;font-weight:800;overflow-wrap:anywhere}.finance-result p{font-size:12px;color:#b9cbd6;margin:10px 0 20px}.finance-result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.finance-result-grid>div{border-top:1px solid #425b6b;padding:13px 0 5px;min-width:0}.finance-result-grid span{font-size:10px;color:#aec1ce;line-height:1.55;display:block}.finance-result-grid strong{display:block;font-size:19px;line-height:1.35;letter-spacing:-.035em;color:#fff;margin-top:6px;overflow-wrap:anywhere}.finance-result-grid .finance-result-wide{grid-column:1/-1}.finance-result-wide strong{color:#83e0c6;font-size:25px}.finance-formula{padding:24px}.finance-formula p{font-size:11px;margin-bottom:10px}.finance-formula .source{font-size:10px}
+  .finance-consolidated{margin-top:16px;padding:25px}.finance-table th:not(:first-child),.finance-table td:not(:first-child){text-align:right;white-space:nowrap}.finance-table td{font-size:12px}.finance-table tbody tr.finance-row-highlight{background:#eaf7f3}.finance-table tbody tr.finance-row-highlight td{font-weight:800}.finance-table td.finance-negative{color:#b45e54}.finance-assumptions{margin-top:16px}.finance-assumptions p{font-size:11px;margin:0}
+  @media(max-width:1200px){.finance-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.finance-workspace{grid-template-columns:1fr}.finance-output{display:grid;grid-template-columns:1fr 1fr}.finance-stages{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  @media(max-width:850px){.finance-stages{grid-template-columns:1fr}.finance-stage:not(:last-child):after{content:"↓";top:auto;right:50%;bottom:-24px;transform:translateX(50%)}.finance-output{grid-template-columns:1fr}.finance-panel-top{flex-direction:column}.finance-editor-header{align-items:start;flex-direction:column}.finance-export,.finance-reset{max-width:100%}}
+  @media(max-width:540px){.finance-overview{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.finance-kpi{padding:16px 12px;min-height:163px}.finance-kpi strong{font-size:22px}.finance-kpi small{font-size:9px}.finance-stage-panel,.finance-consolidated{padding:19px}.finance-input-grid{grid-template-columns:1fr 1fr;gap:11px}.finance-input-wrap label{min-height:40px}.finance-input-wrap input{padding:11px 9px;font-size:14px}.finance-editor{padding:19px}.finance-channel-head{flex-direction:column}.finance-auto{text-align:left;max-width:none;width:100%}.finance-result{padding:20px}.finance-chart-row{grid-template-columns:35px 1fr 85px;gap:7px}.finance-chart-row strong{font-size:10px}.finance-tab{flex:1 1 100%;text-align:center}.finance-year{flex:1 1 auto}.finance-result-grid strong{font-size:16px}}
+  @media print{.finance-selector,.finance-years,.finance-editor,.finance-export,.finance-reset{display:none!important}.finance-overview,.finance-stages{grid-template-columns:repeat(3,1fr)}.finance-workspace,.finance-output{display:block}}
   .checklist{display:grid;grid-template-columns:1fr 1fr;gap:11px}.task{padding:16px;border:1px solid var(--line);border-radius:13px;background:#fff;display:flex;align-items:start;gap:11px;color:#506377;font-size:12px;cursor:pointer;line-height:1.6}.task:hover{border-color:#8bc9bd}.task input{accent-color:var(--teal);margin-top:3px;width:16px;height:16px;flex:none}.task:has(input:checked){background:#eef8f4;color:#668b84}.task:has(input:checked) span{text-decoration:line-through;text-decoration-color:#a0c0b7}.check-progress{height:7px;background:#e6ecee;border-radius:20px;overflow:hidden;margin:14px 0 24px}.check-progress div{height:100%;width:0;background:linear-gradient(90deg,#197f78,#63c6ae);transition:width .3s}
   .qa{border-top:1px solid var(--line);padding:22px 0;display:grid;grid-template-columns:60px 1fr;gap:12px}.qa:last-child{border-bottom:1px solid var(--line)}.qa-num{font-size:11px;color:var(--teal);font-weight:800}.qa strong{font-size:14px;line-height:1.5;display:block}.qa p{font-size:12px;margin:6px 0 0}
   .footer{padding:56px 0 30px;border-top:1px solid var(--line);font-size:11px;color:#9aa9b5}.footer-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}.reference-list{padding-left:16px;line-height:2}.reference-list li{padding-left:5px;margin-bottom:5px}.endline{display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:24px;margin-top:30px;gap:14px}.mono{font-variant-numeric:tabular-nums}.muted{color:var(--muted)}.hidden-mobile{display:block}
@@ -432,30 +451,111 @@
         </div>
         <div class="callout warning"><strong>Принцип безопасности:</strong> фактический интерес рынка к инъекционному применению не отменяет требований к регистрации и рекламе. В стратегии отделяем рыночную гипотезу от легально допустимых заявлений и способов применения.</div>
       </section>
+
       <section class="section" id="economics">
-        <p class="eyebrow">11 / Финансовая механика роста</p>
-        <h2>Выручка должна быть<br>управляемой величиной.</h2>
-        <p class="lead narrow">Это сценарный калькулятор, а не финансовый прогноз iGenica Lab. Изменяйте количество активных клиентов, ежемесячную закупку и среднюю цену реализации производителем.</p>
-        <div class="calc" style="margin-top:27px">
-          <div class="card">
-            <h3>Параметры сценария</h3>
-            <div class="control" style="margin-top:32px"><div class="control-head"><label for="clients">Активных закупающих клиентов</label><output id="clientsOut">200</output></div><input type="range" min="20" max="1000" step="20" value="200" id="clients"></div>
-            <div class="control"><div class="control-head"><label for="units">Флаконов на клиента в месяц</label><output id="unitsOut">12</output></div><input type="range" min="2" max="50" step="1" value="12" id="units"></div>
-            <div class="control"><div class="control-head"><label for="price">Средняя цена для производителя</label><output id="priceOut">2 500 ₽</output></div><input type="range" min="500" max="7000" step="100" value="2500" id="price"></div>
-            <div class="callout" style="font-size:12px"><strong>Формула:</strong> активные клиенты × флаконы в месяц × цена производителя × 12 месяцев.</div>
+        <p class="eyebrow">11 / Интерактивная финансовая модель</p>
+        <h2>Три канала продаж.<br>Три этапа роста.<br>Одна экономика.</h2>
+        <p class="lead narrow">Вместо одного усреднённого калькулятора - три независимые модели для частнопрактикующих врачей, клиник и дистрибьюторов. Меняйте исходные показатели прямо на встрече: расчёты 2027, 2028 и 2029 годов, общая выручка и результат пересчитываются автоматически.</p>
+        <div class="callout warning" style="margin-top:26px"><strong>Важно:</strong> все значения по умолчанию - демонстрационные допущения, а не фактические продажи, прайс-лист, себестоимость или утверждённый прогноз iGenica Lab. Цены условные. Для утверждения бюджета необходимо загрузить внутренние данные компании. Выручка от дистрибьюторов учитывается только как продажа производителя партнёру, без повторного учёта его последующих продаж врачам.</div>
+
+        <div class="finance-overview">
+          <div class="finance-kpi finance-kpi-primary">
+            <span>Суммарная выручка за три года</span><strong id="fmTotalRevenue">—</strong>
+            <small>Прямые продажи врачам + клиники + отгрузки дистрибьюторам</small>
           </div>
-          <div class="card dark">
-            <div class="eyebrow" style="color:#8cddd0">Сценарная годовая выручка</div>
-            <div class="calc-total mono" id="revenue">72,0 млн ₽</div>
-            <p style="font-size:13px">Без учёта возвратов, бонусов, скидок, НДС и других корректировок, которые зависят от фактической модели бизнеса.</p>
-            <div class="calc-breakdown">
-              <div><strong id="monthRev">6,0 млн ₽</strong><span>в месяц</span></div>
-              <div><strong id="bottlesRev">28 800</strong><span>флаконов в год</span></div>
-            </div>
-            <p class="calc-disclaimer">Начальные значения - условные, не текущие показатели компании. Для инвестиционного бюджета нужно добавить себестоимость, валовую маржу, маркетинговые затраты, возвраты, отсрочки платежа и оборотный капитал.</p>
+          <div class="finance-kpi">
+            <span>Валовой доход за три года</span><strong id="fmTotalGross">—</strong>
+            <small>После себестоимости и переменных расходов на поставку</small>
+          </div>
+          <div class="finance-kpi">
+            <span>Результат после модельных затрат</span><strong id="fmTotalContribution">—</strong>
+            <small>После привлечения, обучения и заданных общих расходов</small>
+          </div>
+          <div class="finance-kpi">
+            <span>Объём продаж за три года</span><strong id="fmTotalUnits">—</strong>
+            <small>Флаконы, по всем трём каналам без двойного счёта</small>
           </div>
         </div>
-        <div class="card light" style="margin-top:17px"><h3>Три главных рычага</h3><div class="grid3"><p><strong>Клиенты:</strong> развивать дистрибуцию и привлечение врачей.</p><p><strong>Частота:</strong> обучение, доступность, сопровождение и удержание.</p><p><strong>Средняя ценность:</strong> правильный ассортимент и экономически обоснованные цены.</p></div></div>
+
+        <div class="card finance-stage-panel">
+          <div class="finance-panel-top">
+            <div><span class="tag">Вектор развития продаж</span><h3>2027 → 2028 → 2029</h3><p>Три этапа с собственными настройками привлечения, покупательского поведения, расходов и цен.</p></div>
+            <button type="button" class="finance-export" id="fmExport">Скачать расчёт и параметры · CSV</button>
+          </div>
+          <div class="finance-stages" id="fmStages" aria-live="polite"></div>
+          <div class="finance-legend" aria-label="Обозначения каналов">
+            <span><i class="finance-dot physicians"></i> Частнопрактикующие врачи</span>
+            <span><i class="finance-dot clinics"></i> Клиники</span>
+            <span><i class="finance-dot distributors"></i> Дистрибьюторы</span>
+          </div>
+          <div class="finance-comparison" id="fmComparison" aria-label="Сравнение годовой выручки по каналам"></div>
+        </div>
+
+        <div class="finance-editor-header">
+          <div>
+            <p class="eyebrow">Настройка модели</p>
+            <h3>Покрутить цифры на встрече</h3>
+            <p>Выберите канал и год. Можно менять каждое допущение отдельно, а общая модель немедленно перестроится. Все изменения сохраняются только в этом браузере.</p>
+          </div>
+          <button type="button" class="finance-reset" id="fmReset">Сбросить к демонстрационным значениям</button>
+        </div>
+        <div class="finance-selector" role="group" aria-label="Выбор канала продаж">
+          <button type="button" class="finance-tab active" data-fm-channel="doctor" aria-pressed="true">Частнопрактикующие врачи</button>
+          <button type="button" class="finance-tab" data-fm-channel="clinic" aria-pressed="false">Клиники</button>
+          <button type="button" class="finance-tab" data-fm-channel="dealer" aria-pressed="false">Дистрибьюторы</button>
+        </div>
+        <div class="finance-years" role="group" aria-label="Выбор года">
+          <button type="button" class="finance-year active" data-fm-year="0" aria-pressed="true">Этап 1 · 2027</button>
+          <button type="button" class="finance-year" data-fm-year="1" aria-pressed="false">Этап 2 · 2028</button>
+          <button type="button" class="finance-year" data-fm-year="2" aria-pressed="false">Этап 3 · 2029</button>
+        </div>
+        <div class="finance-workspace">
+          <div class="card finance-editor">
+            <div class="finance-channel-head">
+              <div><span class="tag" id="fmCurrentStage">2027 / первый этап</span><h3 id="fmEditorTitle">Частнопрактикующие врачи</h3><p id="fmEditorIntro">—</p></div>
+              <div class="finance-auto"><span>База на начало года</span><strong id="fmStartingBase">—</strong><small id="fmBaseHint">—</small></div>
+            </div>
+            <div id="fmInputs"></div>
+          </div>
+          <div class="finance-output">
+            <div class="card dark finance-result">
+              <span class="eyebrow" style="color:#7fdbce">Результат выбранного канала и года</span>
+              <div class="finance-main-num" id="fmSelectedRevenue">—</div>
+              <p>Выручка производителя с учётом скидок</p>
+              <div class="finance-result-grid">
+                <div><span>Активные на конец года</span><strong id="fmEndClients">—</strong></div>
+                <div><span>Новые покупатели</span><strong id="fmNewClients">—</strong></div>
+                <div><span>Продано флаконов</span><strong id="fmSelectedUnits">—</strong></div>
+                <div><span>Средняя реализованная цена</span><strong id="fmNetPrice">—</strong></div>
+                <div><span>Валовой доход</span><strong id="fmSelectedGross">—</strong></div>
+                <div><span>Маржинальность продаж</span><strong id="fmSelectedMargin">—</strong></div>
+                <div class="finance-result-wide"><span>Результат после затрат на привлечение и программы</span><strong id="fmSelectedContribution">—</strong></div>
+              </div>
+            </div>
+            <div class="card finance-formula">
+              <h4>Как считается выбранный канал</h4>
+              <p><strong>Новые покупатели:</strong> квалифицированные обращения × конверсия в первую закупку.</p>
+              <p><strong>База на конец года:</strong> начальная база + новые покупатели − отток.</p>
+              <p><strong>Объём:</strong> средняя активная база × заказов в год × флаконов в заказе.</p>
+              <p><strong>Выручка:</strong> объём × цена × (1 − скидка).</p>
+              <p><strong>Валовой доход:</strong> выручка − себестоимость продукции − переменные расходы на доставку и обработку.</p>
+              <p><strong>Результат канала:</strong> валовой доход − стоимость привлечения новых покупателей − отдельный бюджет на обучение, поддержку и программы.</p>
+              <p class="source">Для планирования средняя активная база рассчитывается по начальной и конечной базе. Это упрощённая годовая модель без помесячной сезонности и графика движения денежных средств.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card finance-consolidated">
+          <div class="finance-panel-top"><div><span class="tag">Сводная экономика</span><h3>Что даёт каждый канал по годам</h3></div><p>Все суммы в миллионах рублей, кроме строки объёма. Отрицательный результат отображается со знаком минус.</p></div>
+          <div class="table-wrap"><table class="matrix-table finance-table" id="fmTable"><thead><tr><th>Показатель</th><th>2027</th><th>2028</th><th>2029</th><th>Итого за 3 года</th></tr></thead><tbody></tbody></table></div>
+        </div>
+        <div class="card light finance-assumptions">
+          <h3>Границы модели и управленческие выводы</h3>
+          <div class="grid3">
+            <p><strong>Без двойного счёта.</strong> Выручка врача или клиники учитывается в прямом канале только при покупке у производителя. Перепродажа через дистрибьютора повторно не прибавляется.</p>
+            <p><strong>Не чистая прибыль.</strong> Итог после модельных затрат не равен бухгалтерской прибыли или EBITDA (Earnings Before Interest, Taxes, Depreciation and Amortization, прибыль до вычета процентов, налогов и амортизации). Налоги, финансирование, амортизация и прочие неучтённые статьи остаются за рамками.</p>
+            <p><strong>Проверка экономики.</strong> На встрече прежде всего корректируем базу действующих клиентов, конверсию, частоту заказов, отпускные цены, себестоимость, скидки и реальные затраты на привлечение.</p>
+          </div>
+        </div>
       </section>
       <section class="section" id="roadmap">
         <p class="eyebrow">12 / Стратегическая дорожная карта</p>
@@ -517,11 +617,219 @@
       window.addEventListener("scroll",onScroll,{passive:true});window.addEventListener("resize",onScroll);onScroll();
       document.querySelectorAll("[data-filter]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(function(x){x.classList.toggle("active",x===b);});document.querySelectorAll("[data-category]").forEach(function(c){c.hidden=(f!=="all"&&c.dataset.category!==f);});});});
       document.querySelectorAll("[data-segment]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.segment;document.querySelectorAll("[data-segment]").forEach(function(x){var active=x===b;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active));});document.querySelectorAll("[data-perspective]").forEach(function(p){p.classList.toggle("active",p.dataset.perspective===f);});});});
-      var fmt = new Intl.NumberFormat("ru-RU");
-      var inputs = ["clients","units","price"].map(function(id){return document.getElementById(id)});
-      function money(v){return (v/1000000).toLocaleString("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1})+" млн ₽";}
-      function updateCalc(){var c=+inputs[0].value,u=+inputs[1].value,p=+inputs[2].value;document.getElementById("clientsOut").textContent=fmt.format(c);document.getElementById("unitsOut").textContent=fmt.format(u);document.getElementById("priceOut").textContent=fmt.format(p)+" ₽";document.getElementById("revenue").textContent=money(c*u*p*12);document.getElementById("monthRev").textContent=money(c*u*p);document.getElementById("bottlesRev").textContent=fmt.format(c*u*12);}
-      inputs.forEach(function(i){i.addEventListener("input",updateCalc)});updateCalc();
+
+      /* Financial scenario engine. Inputs are illustrative and stored only in the current browser. */
+      var fmYears=[2027,2028,2029],fmChannels=["doctor","clinic","dealer"];
+      var fmTitles={doctor:"Частнопрактикующие врачи",clinic:"Клиники",dealer:"Дистрибьюторы"};
+      var fmDescriptions={
+        doctor:"Прямые покупки частнопрактикующих врачей у производителя. Продажи через дистрибьюторов сюда не включаются.",
+        clinic:"Прямые закупки клиник у производителя. Покупки клиник у дистрибьюторов учитываются только в канале дистрибуции.",
+        dealer:"Отгрузки производителя дистрибьюторам. Их дальнейшая перепродажа врачам и клиникам не суммируется повторно."
+      };
+      var fmStagesLabels=["Создать систему","Масштабировать спрос","Укрепить федеральное присутствие"];
+      var fmDefaults={
+        doctor:[
+          {opening:100,adjustment:0,leads:450,conversion:20,churn:15,orders:4,units:8,price:4200,discount:3,cogs:1700,shipping:140,cac:1600,program:750000},
+          {opening:100,adjustment:0,leads:640,conversion:21,churn:13,orders:4.6,units:9,price:4400,discount:3,cogs:1750,shipping:150,cac:1700,program:1100000},
+          {opening:100,adjustment:0,leads:900,conversion:23,churn:11,orders:5.2,units:10,price:4650,discount:3,cogs:1820,shipping:160,cac:1850,program:1550000}
+        ],
+        clinic:[
+          {opening:30,adjustment:0,leads:140,conversion:18,churn:10,orders:6,units:20,price:3900,discount:6,cogs:1700,shipping:110,cac:6500,program:600000},
+          {opening:30,adjustment:0,leads:190,conversion:20,churn:9,orders:6.5,units:23,price:4100,discount:6,cogs:1750,shipping:115,cac:6800,program:850000},
+          {opening:30,adjustment:0,leads:260,conversion:22,churn:8,orders:7,units:26,price:4300,discount:6,cogs:1820,shipping:120,cac:7200,program:1200000}
+        ],
+        dealer:[
+          {opening:8,adjustment:0,leads:40,conversion:15,churn:9,orders:6,units:110,price:2700,discount:8,cogs:1700,shipping:65,cac:25000,program:850000},
+          {opening:8,adjustment:0,leads:55,conversion:18,churn:8,orders:7,units:135,price:2850,discount:8,cogs:1750,shipping:70,cac:27000,program:1200000},
+          {opening:8,adjustment:0,leads:70,conversion:20,churn:7,orders:8,units:155,price:3000,discount:8,cogs:1820,shipping:75,cac:29000,program:1700000}
+        ],
+        overhead:[4000000,5800000,8500000]
+      };
+      var fmFields=[
+        {group:"Клиентская база и конверсия",items:[
+          {key:"opening",label:"Активных покупателей на начало 2027 года",help:"Меняется только для первого года",min:0,max:1000000,step:1},
+          {key:"adjustment",label:"Корректировка переходящей базы, покупателей",help:"Для 2028/2029. Можно использовать отрицательное значение",min:-1000000,max:1000000,step:1},
+          {key:"leads",label:"Квалифицированных обращений за год",help:"Подходящие потенциальные покупатели, шт.",min:0,max:10000000,step:1},
+          {key:"conversion",label:"Конверсия обращений в покупку, %",help:"Доля впервые закупивших",min:0,max:100,step:0.1},
+          {key:"churn",label:"Отток действующих покупателей, %",help:"Потеря клиентов за год",min:0,max:100,step:0.1}
+        ]},
+        {group:"Регулярность и объём закупок",items:[
+          {key:"orders",label:"Заказов на покупателя в год",help:"Средняя частота закупок",min:0,max:365,step:0.1},
+          {key:"units",label:"Флаконов в одном заказе",help:"Среднее количество единиц продукции",min:0,max:100000,step:1}
+        ]},
+        {group:"Цены и переменные затраты",items:[
+          {key:"price",label:"Отпускная цена за флакон, ₽",help:"Цена до скидки; демонстрационное значение",min:0,max:10000000,step:50},
+          {key:"discount",label:"Средняя скидка, %",help:"От заданной отпускной цены",min:0,max:100,step:0.1},
+          {key:"cogs",label:"Себестоимость флакона, ₽",help:"Производственные переменные затраты",min:0,max:10000000,step:50},
+          {key:"shipping",label:"Обработка и доставка на флакон, ₽",help:"Переменные затраты на исполнение заказа",min:0,max:10000000,step:10}
+        ]},
+        {group:"Привлечение и развитие",items:[
+          {key:"cac",label:"Привлечение нового покупателя, ₽",help:"Расход на одного нового покупателя",min:0,max:10000000,step:100},
+          {key:"program",label:"Отдельный бюджет на обучение и поддержку, ₽/год",help:"Без расходов на привлечение, уже учтённых выше",min:0,max:1000000000,step:10000}
+        ]}
+      ];
+      var fmStorageKey="igenica_financial_3y_channels_v2";
+      function fmClone(a){return JSON.parse(JSON.stringify(a));}
+      function fmNumber(v,fallback){var n=Number(v);return Number.isFinite(n)?n:fallback;}
+      function fmSanitize(v,ref,key){
+        var meta=null;fmFields.forEach(function(g){g.items.forEach(function(x){if(x.key===key)meta=x;});});
+        var n=fmNumber(v,ref);if(meta)n=Math.min(meta.max,Math.max(meta.min,n));
+        return n;
+      }
+      function fmRestore(){
+        var result=fmClone(fmDefaults);
+        try{
+          var found=JSON.parse(localStorage.getItem(fmStorageKey)||"null");
+          if(found && typeof found==="object"){
+            fmChannels.forEach(function(ch){if(!Array.isArray(found[ch]))return;for(var y=0;y<3;y++){if(!found[ch][y])continue;Object.keys(result[ch][y]).forEach(function(k){result[ch][y][k]=fmSanitize(found[ch][y][k],result[ch][y][k],k);});}});
+            if(Array.isArray(found.overhead)){for(var i=0;i<3;i++)result.overhead[i]=Math.min(100000000000,Math.max(0,fmNumber(found.overhead[i],result.overhead[i])));}
+          }
+        }catch(e){}
+        return result;
+      }
+      var fmState=fmRestore(),fmActiveChannel="doctor",fmActiveYear=0;
+      var fmFmt=new Intl.NumberFormat("ru-RU",{maximumFractionDigits:1});
+      var fmMoneyFmt=new Intl.NumberFormat("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1});
+      function fmMln(v){return fmMoneyFmt.format(v/1000000)+" млн ₽";}
+      function fmNum(v){return fmFmt.format(v);}
+      function fmRub(v){return fmNum(Math.round(v))+" ₽";}
+      function fmPct(v){return fmFmt.format(v)+"%";}
+      function fmSave(){try{localStorage.setItem(fmStorageKey,JSON.stringify(fmState));}catch(e){}}
+      function fmCalculate(){
+        var byYear=[],prior={};
+        for(var yr=0;yr<3;yr++){
+          var result={year:fmYears[yr],channels:{},revenue:0,gross:0,contribution:0,units:0,newClients:0,endClients:0,programs:0,acquisition:0,overhead:fmState.overhead[yr]};
+          fmChannels.forEach(function(ch){
+            var p=fmState[ch][yr];
+            var opening=yr===0?p.opening:Math.max(0,prior[ch].end+p.adjustment);
+            var incoming=Math.round(p.leads*p.conversion/100);
+            var lost=Math.round(opening*p.churn/100);
+            var end=Math.max(0,opening+incoming-lost);
+            var average=Math.max(0,(opening+end)/2);
+            var bottles=average*p.orders*p.units;
+            var unitPrice=p.price*(1-p.discount/100);
+            var revenue=bottles*unitPrice;
+            var variable=bottles*(p.cogs+p.shipping);
+            var gross=revenue-variable;
+            var acquisition=incoming*p.cac;
+            var contribution=gross-acquisition-p.program;
+            var line={opening:opening,newClients:incoming,lost:lost,end:end,average:average,units:bottles,netPrice:unitPrice,revenue:revenue,variable:variable,gross:gross,acquisition:acquisition,program:p.program,contribution:contribution,margin:revenue>0?gross/revenue*100:0};
+            result.channels[ch]=line;prior[ch]=line;
+            result.revenue+=revenue;result.gross+=gross;result.contribution+=contribution;result.units+=bottles;result.newClients+=incoming;result.endClients+=end;result.programs+=p.program;result.acquisition+=acquisition;
+          });
+          result.afterOverhead=result.contribution-result.overhead;
+          byYear.push(result);
+        }
+        return byYear;
+      }
+      function fmText(id,value){var n=document.getElementById(id);if(n)n.textContent=value;}
+      function fmRenderInputs(){
+        document.querySelectorAll("[data-fm-channel]").forEach(function(b){var a=b.dataset.fmChannel===fmActiveChannel;b.classList.toggle("active",a);b.setAttribute("aria-pressed",String(a));});
+        document.querySelectorAll("[data-fm-year]").forEach(function(b){var a=Number(b.dataset.fmYear)===fmActiveYear;b.classList.toggle("active",a);b.setAttribute("aria-pressed",String(a));});
+        fmText("fmCurrentStage",fmYears[fmActiveYear]+" / "+["создание системы","масштабирование","укрепление сети"][fmActiveYear]);
+        fmText("fmEditorTitle",fmTitles[fmActiveChannel]);fmText("fmEditorIntro",fmDescriptions[fmActiveChannel]);
+        var root=document.getElementById("fmInputs");root.textContent="";
+        fmFields.forEach(function(group){
+          var g=document.createElement("div");g.className="finance-form-group";
+          var title=document.createElement("h4");title.textContent=group.group;g.appendChild(title);
+          var grid=document.createElement("div");grid.className="finance-input-grid";
+          group.items.forEach(function(field){
+            if((field.key==="opening"&&fmActiveYear!==0)||(field.key==="adjustment"&&fmActiveYear===0))return;
+            var wrap=document.createElement("div");wrap.className="finance-input-wrap";
+            var label=document.createElement("label");var id="fm-field-"+field.key;label.htmlFor=id;label.textContent=field.label;
+            var input=document.createElement("input");input.type="number";input.inputMode="decimal";input.id=id;input.min=field.min;input.max=field.max;input.step=field.step;
+            input.value=fmState[fmActiveChannel][fmActiveYear][field.key];input.dataset.fmInput=field.key;
+            var help=document.createElement("small");help.textContent=field.help;
+            wrap.appendChild(label);wrap.appendChild(input);wrap.appendChild(help);grid.appendChild(wrap);
+          });
+          g.appendChild(grid);root.appendChild(g);
+        });
+        var central=document.createElement("div");central.className="finance-form-group";
+        var t=document.createElement("h4");t.textContent="Общие расходы компании (учитываются в итоговой модели)";central.appendChild(t);
+        var grid=document.createElement("div");grid.className="finance-input-grid";
+        var wrap=document.createElement("div");wrap.className="finance-input-wrap";
+        var lbl=document.createElement("label");lbl.htmlFor="fm-overhead";lbl.textContent="Административные и общие расходы, ₽/год";
+        var inp=document.createElement("input");inp.type="number";inp.id="fm-overhead";inp.min="0";inp.max="100000000000";inp.step="100000";inp.value=fmState.overhead[fmActiveYear];
+        var hint=document.createElement("small");hint.textContent="Общее значение для года, не утраивается между каналами";
+        wrap.appendChild(lbl);wrap.appendChild(inp);wrap.appendChild(hint);grid.appendChild(wrap);central.appendChild(grid);root.appendChild(central);
+      }
+      function fmRenderSummary(model){
+        var total=model.reduce(function(o,y){o.revenue+=y.revenue;o.gross+=y.gross;o.afterOverhead+=y.afterOverhead;o.units+=y.units;return o;},{revenue:0,gross:0,afterOverhead:0,units:0});
+        fmText("fmTotalRevenue",fmMln(total.revenue));fmText("fmTotalGross",fmMln(total.gross));fmText("fmTotalContribution",fmMln(total.afterOverhead));fmText("fmTotalUnits",fmNum(Math.round(total.units))+" фл.");
+        var max=Math.max.apply(null,model.map(function(y){return y.revenue;}));
+        var stages=document.getElementById("fmStages"),bar=document.getElementById("fmComparison");stages.textContent="";bar.textContent="";
+        model.forEach(function(y,i){
+          var block=document.createElement("div");block.className="finance-stage";
+          block.innerHTML='<small>Этап '+(i+1)+' · '+y.year+'</small><h4>'+fmStagesLabels[i]+'</h4><div class="stage-revenue">'+fmMln(y.revenue)+'</div><p>Выручка за год</p><p class="stage-secondary">Валовой доход: <strong>'+fmMln(y.gross)+'</strong></p><p>Результат после модельных затрат: <strong>'+fmMln(y.afterOverhead)+'</strong></p><p>Объём: '+fmNum(Math.round(y.units))+' флаконов</p>';
+          stages.appendChild(block);
+          var row=document.createElement("div");row.className="finance-chart-row";
+          var year=document.createElement("span");year.textContent=String(y.year);row.appendChild(year);
+          var track=document.createElement("div");track.className="finance-chart-track";
+          var fill=document.createElement("div");fill.className="finance-chart-fill";fill.style.width=(max>0?(y.revenue/max*100):0)+"%";
+          fmChannels.forEach(function(ch){var el=document.createElement("span");el.className="finance-stack "+({doctor:"physicians",clinic:"clinics",dealer:"distributors"}[ch]);el.style.width=(y.revenue>0?y.channels[ch].revenue/y.revenue*100:0)+"%";el.title=fmTitles[ch]+": "+fmMln(y.channels[ch].revenue);fill.appendChild(el);});
+          track.appendChild(fill);row.appendChild(track);var end=document.createElement("strong");end.textContent=fmMln(y.revenue);row.appendChild(end);bar.appendChild(row);
+        });
+        var rows=[
+          ["Выручка: частнопрактикующие врачи",function(y){return y.channels.doctor.revenue;}],
+          ["Выручка: клиники",function(y){return y.channels.clinic.revenue;}],
+          ["Выручка: дистрибьюторы",function(y){return y.channels.dealer.revenue;}],
+          ["Выручка всех каналов",function(y){return y.revenue;},"finance-row-highlight"],
+          ["Продано флаконов, шт.",function(y){return y.units;},"units"],
+          ["Валовой доход",function(y){return y.gross;}],
+          ["Привлечение новых покупателей",function(y){return y.acquisition;}],
+          ["Программы, обучение и поддержка",function(y){return y.programs;}],
+          ["Общие расходы компании",function(y){return y.overhead;}],
+          ["Результат после модельных затрат",function(y){return y.afterOverhead;},"finance-row-highlight"]
+        ];
+        var body=document.querySelector("#fmTable tbody");body.textContent="";
+        rows.forEach(function(spec){
+          var tr=document.createElement("tr");if(spec[2]==="finance-row-highlight")tr.className="finance-row-highlight";
+          var name=document.createElement("td");name.textContent=spec[0];tr.appendChild(name);var sum=0;
+          model.forEach(function(y){var value=spec[1](y);sum+=value;var cell=document.createElement("td");cell.textContent=spec[2]==="units"?fmNum(Math.round(value)):fmMoneyFmt.format(value/1000000);if(value<0)cell.className="finance-negative";tr.appendChild(cell);});
+          var grand=document.createElement("td");grand.textContent=spec[2]==="units"?fmNum(Math.round(sum)):fmMoneyFmt.format(sum/1000000);if(sum<0)grand.className="finance-negative";tr.appendChild(grand);body.appendChild(tr);
+        });
+      }
+      function fmRenderDetail(model){
+        var d=model[fmActiveYear].channels[fmActiveChannel];var y=fmState[fmActiveChannel][fmActiveYear];
+        fmText("fmStartingBase",fmNum(d.opening));
+        fmText("fmBaseHint",fmActiveYear===0?"Редактируется полем начальной базы":"Перенос с прошлого года + корректировка");
+        fmText("fmSelectedRevenue",fmMln(d.revenue));fmText("fmEndClients",fmNum(d.end));fmText("fmNewClients",fmNum(d.newClients));fmText("fmSelectedUnits",fmNum(Math.round(d.units)));
+        fmText("fmNetPrice",fmRub(d.netPrice));fmText("fmSelectedGross",fmMln(d.gross));fmText("fmSelectedMargin",fmPct(d.margin));fmText("fmSelectedContribution",fmMln(d.contribution));
+      }
+      function fmRenderAll(rebuildInputs){
+        var calc=fmCalculate();
+        if(rebuildInputs)fmRenderInputs();
+        fmRenderSummary(calc);fmRenderDetail(calc);fmSave();
+      }
+      document.querySelectorAll("[data-fm-channel]").forEach(function(btn){btn.addEventListener("click",function(){fmActiveChannel=btn.dataset.fmChannel;fmRenderAll(true);});});
+      document.querySelectorAll("[data-fm-year]").forEach(function(btn){btn.addEventListener("click",function(){fmActiveYear=Number(btn.dataset.fmYear);fmRenderAll(true);});});
+      document.getElementById("fmInputs").addEventListener("input",function(event){
+        var el=event.target;
+        if(el.id==="fm-overhead"){fmState.overhead[fmActiveYear]=Math.min(100000000000,Math.max(0,fmNumber(el.value,0)));fmRenderAll(false);return;}
+        if(!el.dataset.fmInput)return;
+        var key=el.dataset.fmInput;fmState[fmActiveChannel][fmActiveYear][key]=fmSanitize(el.value,0,key);fmRenderAll(false);
+      });
+      document.getElementById("fmInputs").addEventListener("change",function(event){
+        var el=event.target;if(!el.matches('input[type="number"]'))return;
+        var next=el.id==="fm-overhead"?fmState.overhead[fmActiveYear]:fmState[fmActiveChannel][fmActiveYear][el.dataset.fmInput];
+        el.value=next;fmRenderAll(false);
+      });
+      document.getElementById("fmReset").addEventListener("click",function(){
+        if(!window.confirm("Сбросить все изменения финансовой модели к демонстрационным значениям?"))return;
+        fmState=fmClone(fmDefaults);fmRenderAll(true);
+      });
+      document.getElementById("fmExport").addEventListener("click",function(){
+        var calculated=fmCalculate();var lines=[["Год","Канал","Активные на начало","Обращения","Конверсия %","Отток %","Новые покупатели","Активные на конец","Заказов в год","Флаконов в заказе","Отпускная цена","Скидка %","Себестоимость","Логистика на флакон","Стоимость привлечения покупателя","Программы","Флаконов за год","Выручка","Валовой доход","Результат канала","Общие расходы за год","Результат года"]];
+        calculated.forEach(function(year,i){fmChannels.forEach(function(ch){
+          var p=fmState[ch][i],d=year.channels[ch];
+          lines.push([year.year,fmTitles[ch],d.opening,p.leads,p.conversion,p.churn,d.newClients,d.end,p.orders,p.units,p.price,p.discount,p.cogs,p.shipping,p.cac,p.program,d.units,d.revenue,d.gross,d.contribution,year.overhead,year.afterOverhead]);
+        });});
+        function csvValue(v){return '"'+String(v).replace(/"/g,'""')+'"';}
+        var csv="\uFEFF"+lines.map(function(row){return row.map(csvValue).join(";");}).join("\r\n");
+        var blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+        var url=URL.createObjectURL(blob);var link=document.createElement("a");link.href=url;link.download="iGenica_financial_model_2027_2029.csv";document.body.appendChild(link);link.click();link.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
+      });
+      fmRenderAll(true);
       var checks=Array.prototype.slice.call(document.querySelectorAll("#checklist input"));var key="igenica_roadmap_90_v1";
       try{var saved=JSON.parse(localStorage.getItem(key)||"[]");checks.forEach(function(c,i){c.checked=!!saved[i];});}catch(e){}
       function updateChecks(){var n=checks.filter(function(c){return c.checked}).length;document.getElementById("doneLabel").textContent=n+" / "+checks.length+" выполнено";document.getElementById("checkProgress").style.width=n/checks.length*100+"%";try{localStorage.setItem(key,JSON.stringify(checks.map(function(c){return c.checked})));}catch(e){}}
