@@ -33,7 +33,7 @@
   .matrix-table{width:100%;border-collapse:collapse}.matrix-table th{text-align:left;font-size:10px;color:#9ba9b5;letter-spacing:.08em;text-transform:uppercase;padding:13px 12px;border-bottom:1px solid var(--line)}.matrix-table td{font-size:12px;padding:15px 12px;border-bottom:1px solid var(--line);vertical-align:top}.matrix-table td:first-child{font-weight:800}.matrix-table tr:last-child td{border-bottom:0}.table-wrap{overflow:auto}
   .competitor{min-height:265px;display:flex;flex-direction:column}.competitor .comp-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:21px}.comp-badge{display:inline-flex;align-items:center;justify-content:center;background:#e8eff5;width:47px;height:47px;border-radius:14px;color:var(--teal);font-weight:800}.competitor .source{margin-top:auto}.competitor p{font-size:12px}.mini-stat{font-size:29px;letter-spacing:-.06em;font-weight:800;color:var(--teal);line-height:1}
   .logic{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;align-items:stretch}.logic-item{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 14px;position:relative}.logic-item:not(:last-child):after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);z-index:2;color:var(--teal);font-weight:800}.logic-num{font-size:10px;font-weight:800;color:var(--teal)}.logic-item h4{font-size:13px;margin:12px 0 6px}.logic-item p{font-size:11px;margin:0;line-height:1.5}
-  .perspective{display:none}.perspective.active{display:block}.segment-bar{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}.segment-head{display:grid;grid-template-columns:1fr 1.1fr;gap:24px}.segment-head ul{list-style:none;padding:0;margin:0}.segment-head li{border-bottom:1px solid var(--line);padding:10px 0;font-size:12px;color:var(--soft)}.segment-head li:before{content:"↗";color:var(--teal);font-weight:800;margin-right:10px}
+  .perspective{display:none}.perspective.active{display:block}.segment-bar{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 18px}.segment-hero{display:grid;grid-template-columns:1fr .94fr;gap:30px;align-items:start;background:linear-gradient(125deg,#eaf7f4,#fff 78%);margin-bottom:16px}.segment-hero h3{font-size:clamp(24px,2.3vw,33px);margin:14px 0;letter-spacing:-.04em}.segment-hero p{font-size:13px;line-height:1.75;margin:0}.segment-promise{padding:21px;border:1px solid #d9eae6;border-radius:17px;background:rgba(255,255,255,.76)}.segment-promise>span{font-size:10px;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#3a9891}.segment-promise strong{display:block;font-size:15px;line-height:1.7;margin:10px 0}.segment-promise p{font-size:11px;color:#788b91}.segment-mechanics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.segment-step{display:flex;flex-direction:column;align-items:flex-start;gap:10px;min-width:0;padding:27px}.segment-index{font-size:10px;font-weight:800;letter-spacing:.055em;color:#248c82;text-transform:uppercase}.segment-step h4{font-size:17px;line-height:1.36;margin:2px 0 0}.segment-step p{font-size:12px;line-height:1.85;margin:0;color:#596f7e}.segment-kpi{width:100%;margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:11px;line-height:1.7;color:#738a98}.segment-kpi b{color:#25867d}.segment-mechanics .segment-step:last-child:nth-child(odd){grid-column:1/-1;background:linear-gradient(110deg,#fff,#f2faf7)}@media(max-width:860px){.segment-hero{grid-template-columns:1fr}.segment-mechanics{grid-template-columns:1fr}.segment-mechanics .segment-step:last-child:nth-child(odd){grid-column:auto}}@media(max-width:540px){.segment-hero{gap:18px}.segment-step{padding:22px}.segment-step h4{font-size:16px}.segment-step p{font-size:12px}.segment-bar .seg-btn{flex:1 1 auto}}
   .p-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.p-card{padding:23px;min-height:202px}.p-card b{font-size:26px;color:#c8d6da;display:block;margin-bottom:18px}.p-card h4{font-size:14px}.p-card p{font-size:11px}
   .swot{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.swot-cell{padding:30px;border-radius:22px;min-height:250px}.swot-cell h3{font-size:19px}.swot-cell ul{padding-left:18px;color:var(--soft);font-size:12px;margin:14px 0 0;line-height:2.15}.swot-cell.s{background:#edf8f3}.swot-cell.w{background:#f2f4fa}.swot-cell.o{background:#eaf5fb}.swot-cell.t{background:#fbf2ee}
   .risk-row{display:grid;grid-template-columns:180px 1fr 110px;gap:15px;align-items:start;border-top:1px solid var(--line);padding:18px 0;font-size:12px}.risk-row:first-child{border-top:0}.risk-row strong{font-size:12px}.risk-row span{color:#657686}.risk-level{justify-self:end;font-size:10px;font-weight:800;padding:5px 10px;border-radius:50px;color:#b2744e;background:#fcf0e6}.risk-level.critical{color:#ac5454;background:#fceceb}
@@ -224,17 +224,116 @@
         <div class="callout"><strong>Выбор конкурентного поля:</strong> RecomboColl конкурирует с коллагеновыми продуктами и более широким набором решений по улучшению качества кожи. ARTLINE конкурирует в сегментах ПДРН (полидезоксирибонуклеотидов), полинуклеотидов и ГК (гиалуроновой кислоты). Позиционирование должно учитывать обе логики.</div>
       </section>
       <section class="section" id="segments">
-        <p class="eyebrow">06 / STP (сегментирование, выбор аудитории и позиционирование)</p>
+        <p class="eyebrow">06 / Сегменты и причины покупки</p>
         <h2>Одна молекула.<br>Разные причины купить.</h2>
-        <p class="lead narrow">Используем модель STP (Segmentation, Targeting, Positioning, сегментирование, выбор целевой аудитории и позиционирование). Коммуникация и коммерческое предложение должны отличаться для частнопрактикующего врача, клиники и регионального дистрибьютора.</p>
-        <div class="segment-bar" style="margin-top:27px">
-          <button class="seg-btn active" data-segment="doctor">Частнопрактикующий врач</button>
-          <button class="seg-btn" data-segment="clinic">Клиника</button>
-          <button class="seg-btn" data-segment="dealer">Дистрибьютор</button>
+        <p class="lead narrow">Используем модель STP (Segmentation, Targeting, Positioning, сегментирование рынка, выбор целевой аудитории и позиционирование). Частнопрактикующий врач покупает уверенность в продукте и поддержку, клиника оценивает прибыльность и стабильность сервиса, дистрибьютор рассчитывает на оборачиваемость и развитие спроса в регионе.</p>
+        <div class="segment-bar" style="margin-top:27px" role="group" aria-label="Выбор целевой аудитории">
+          <button class="seg-btn active" data-segment="doctor" aria-pressed="true">Частнопрактикующий врач</button>
+          <button class="seg-btn" data-segment="clinic" aria-pressed="false">Клиника</button>
+          <button class="seg-btn" data-segment="dealer" aria-pressed="false">Дистрибьютор</button>
         </div>
-        <div class="perspective active" data-perspective="doctor"><div class="card segment-head"><div><span class="tag">Приоритет первого этапа</span><h3 style="margin-top:20px;font-size:28px">Врач покупает уверенность.</h3><p>Ему важно понимать отличия продукта, требования безопасности, целевую задачу и доступность поддержки.</p></div><div><h4>Механика привлечения</h4><ul><li>Содержательный экспертный контент</li><li>Очно-практическое обучение</li><li>Индивидуальная консультация</li><li>Первая закупка с поддержкой</li><li>Повторные закупки при положительном опыте</li></ul></div></div></div>
-        <div class="perspective" data-perspective="clinic"><div class="card segment-head"><div><span class="tag">Рост среднего заказа</span><h3 style="margin-top:20px;font-size:28px">Клиника покупает экономику.</h3><p>Решение зависит от управляемой прибыльности процедур, компетентности врачей и сервиса производителя.</p></div><div><h4>Механика привлечения</h4><ul><li>Расчёт маржинальности процедуры</li><li>Обучение команды клиники</li><li>Прозрачный контроль закупок</li><li>Партнёрский календарь активности</li><li>Развитие ассортимента на клиента</li></ul></div></div></div>
-        <div class="perspective" data-perspective="dealer"><div class="card segment-head"><div><span class="tag">Региональное масштабирование</span><h3 style="margin-top:20px;font-size:28px">Партнёр покупает оборачиваемость.</h3><p>Ему важны поддержка спроса со стороны врачей, чёткая ценовая политика и предсказуемые поставки.</p></div><div><h4>Механика привлечения</h4><ul><li>Аудит врачебной базы</li><li>Обучение и материалы для менеджеров</li><li>Совместные мероприятия</li><li>Продажи дистрибьютора врачам и складская аналитика</li><li>Региональный план развития</li></ul></div></div></div>
+
+        <div class="perspective active" data-perspective="doctor">
+          <div class="card segment-hero">
+            <div><span class="tag">Приоритет первого этапа</span><h3>Врач покупает уверенность.</h3><p>Нужно показать, в каких клинически обоснованных задачах может быть полезен продукт, чем отличаются составы, какие есть данные по безопасности и куда обратиться за поддержкой.</p></div>
+            <div class="segment-promise"><span>Коммерческий путь</span><strong>Узнал → обучился → получил консультацию → закупил → применяет регулярно</strong><p>Основной показатель: доля обученных врачей, совершивших первую и повторную закупку.</p></div>
+          </div>
+          <div class="segment-mechanics">
+            <article class="card segment-step">
+              <span class="segment-index">01 / Знакомство</span><h4>Содержательный экспертный контент</h4>
+              <p>Создаём библиотеку материалов для врача: происхождение рекомбинантного коллагена, особенности состава, подтверждённые свойства, различия концентраций и ответы на типичные вопросы. Публикуем разборы научных исследований и интервью экспертов на профессиональном сайте, в поисковой выдаче и профильных сообществах. Каждый материал ведёт к конкретному действию: регистрации на вебинар, запросу документации или консультации специалиста.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> квалифицированные обращения врачей и записи на обучение</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">02 / Обучение</span><h4>Очное практическое обучение</h4>
+              <p>Запускаем регулярные небольшие группы с теоретической частью, обсуждением подтверждённых показаний, ограничений и практических вопросов работы с продуктом. Практические демонстрации проводим только по разрешённым методикам и при участии уполномоченных медицинских специалистов. После мероприятия направляем участнику материалы, уточняем потребность и фиксируем дальнейший интерес в системе управления клиентами.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> посещаемость, завершение обучения и переход к первой закупке</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">03 / Персонализация</span><h4>Индивидуальная консультация</h4>
+              <p>Медицинский специалист или подготовленный менеджер выясняет профиль практики врача, востребованные процедуры, критерии выбора и основные сомнения. Подбираем релевантные документы, сопоставляем разрешённые характеристики продуктов, обсуждаем наличие и условия закупки без неподтверждённых обещаний результата. В карточке клиента фиксируем интересующие позиции, вопросы и дату следующего контакта.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> переход от консультации к коммерческому предложению</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">04 / Первая сделка</span><h4>Первая закупка с сопровождением</h4>
+              <p>Делаем первую покупку максимально понятной: проверяем профессиональный статус покупателя, объясняем ассортимент, документы, условия оплаты, доставки и хранения. Назначаем ответственного менеджера, который помогает с оформлением заказа и связывает врача с медицинской поддержкой по вопросам, относящимся к инструкции. После поставки проверяем качество сервиса и собираем обратную связь, не подталкивая к использованию вне разрешённых условий.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> конверсию в первую закупку и время от обучения до заказа</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">05 / Удержание</span><h4>Повторные закупки и развитие практики</h4>
+              <p>В системе управления клиентами отслеживаем интервалы между заказами и заранее напоминаем менеджеру о необходимости связаться с врачом. Узнаём, какие вопросы возникли в практике, достаточно ли товара и нужна ли дополнительная научная или образовательная поддержка. Предлагаем другие позиции портфеля только при наличии обоснованной задачи и обеспечиваем стабильность поставок.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> долю повторных закупок, частоту заказов и количество приобретаемых позиций</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="perspective" data-perspective="clinic">
+          <div class="card segment-hero">
+            <div><span class="tag blue">Рост прибыльности клиники</span><h3>Клиника покупает экономику.</h3><p>Руководителю важны доходность услуги, прогнозируемая загрузка врачей, качество поставок и возможность развивать новые направления без хаотичного увеличения затрат.</p></div>
+            <div class="segment-promise"><span>Коммерческий путь</span><strong>Финансовый расчёт → обучение команды → контроль закупок → совместные активности → расширение портфеля</strong><p>Основной показатель: маржинальная прибыль и повторные закупки клиники.</p></div>
+          </div>
+          <div class="segment-mechanics">
+            <article class="card segment-step">
+              <span class="segment-index">01 / Экономическое обоснование</span><h4>Расчёт маржинальности процедуры</h4>
+              <p>Разрабатываем калькулятор экономики услуги: закупочная стоимость продукта, расходные материалы, оплата труда врача, время кабинета и прочие прямые затраты. Вместе с управляющим строим несколько сценариев цены процедуры и загрузки, затем показываем маржинальный доход в каждом из них. Сравнение с альтернативными услугами делаем на реальных данных клиники, а не на обещаниях производителя.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> число клиник, согласовавших финансово обоснованный пилот</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">02 / Команда</span><h4>Обучение врачей и администраторов</h4>
+              <p>Формируем программу для медицинского руководителя и врачей: доказательная база, документы, разрешённые способы применения и критерии выбора продукта. Отдельно обучаем администраторов корректно записывать пациентов и отвечать на организационные вопросы без самостоятельных медицинских рекомендаций. После обучения проводим контроль понимания материала и назначаем контакт для профессиональной поддержки.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> долю обученных специалистов и число клиник, начавших закупки</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">03 / Управление поставками</span><h4>Прозрачный контроль закупок</h4>
+              <p>Составляем согласованную матрицу товаров, цены, условия и график пополнения остатков. Фиксируем партии, сроки годности, частоту заказов и ответственных в учётной системе клиники и системе производителя. Регулярно проверяем дефициты и избыточные остатки, чтобы не замораживать деньги клиники в неходовом ассортименте.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> доступность продуктов, оборачиваемость и регулярность заказов</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">04 / Совместное развитие</span><h4>Партнёрский календарь активности</h4>
+              <p>Составляем с управляющим план на квартал: профессиональные лекции, повышение квалификации врачей, экспертные встречи и допустимые форматы информирования пациентов. Для каждого события заранее определяем ответственного, бюджет, целевую аудиторию и способ оценки результата. После мероприятия отслеживаем заявки, согласованные процедуры и закупки, соблюдая требования к медицинской рекламе и персональным данным.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> стоимость привлечения, запись на услуги и прибыльность мероприятий</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">05 / Рост выручки на клиента</span><h4>Развитие ассортимента клиники</h4>
+              <p>Анализируем, какие категории услуг востребованы у клиники, какие препараты уже закупаются и где есть обоснованные незакрытые потребности. Предлагаем расширение на соседние позиции RecomboColl или ARTLINE только после проверки их применимости и экономики. Ежеквартально оцениваем продажи по каждой позиции, маржинальность и повторные закупки, исключая из плана товары без подтверждённого спроса.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> число активных товарных позиций на клинику и маржинальный доход</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="perspective" data-perspective="dealer">
+          <div class="card segment-hero">
+            <div><span class="tag">Региональное масштабирование</span><h3>Дистрибьютор покупает оборачиваемость.</h3><p>Партнёру нужна не красивая презентация препарата, а понятная модель дохода: активная врачебная база, растущие продажи, поддержка производителя и управляемый склад.</p></div>
+            <div class="segment-promise"><span>Коммерческий путь</span><strong>Аудит территории → обучение менеджеров → совместное создание спроса → контроль продаж → региональный рост</strong><p>Основной показатель: продажи дистрибьютора врачам и клиникам, а не просто отгрузки с завода.</p></div>
+          </div>
+          <div class="segment-mechanics">
+            <article class="card segment-step">
+              <span class="segment-index">01 / Рыночный потенциал</span><h4>Аудит врачебной базы региона</h4>
+              <p>Вместе с партнёром составляем карту лицензированных клиник и частнопрактикующих специалистов, работающих в целевых направлениях эстетической медицины. Сегментируем базу по действующему ассортименту, объёму закупок, интересу к новым технологиям и готовности участвовать в обучении. Определяем незакрытые территории, приоритетные организации и персональные планы контактов, соблюдая требования к обработке данных.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> число квалифицированных врачей и клиник в активной работе</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">02 / Компетенции продаж</span><h4>Обучение и материалы для менеджеров</h4>
+              <p>Создаём единый комплект: продуктовые паспорта, сравнительные таблицы, ответы на возражения, регистрационные документы, сценарии переговоров и инструкции по передаче медицинских вопросов специалисту. Проводим обучение менеджеров с разбором типовых ситуаций и проверкой знаний. Регулярно обновляем материалы, чтобы в разных регионах компания транслировала одинаковые и подтверждённые сообщения.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> прохождение обучения и конверсию контакта в первую закупку</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">03 / Формирование спроса</span><h4>Совместные региональные мероприятия</h4>
+              <p>Планируем профессиональные семинары, вебинары и очные встречи с профильными экспертами в наиболее перспективных городах. Производитель отвечает за научное содержание и подготовку спикеров, дистрибьютор за приглашение своей базы, организацию и последующую коммерческую работу. Каждого участника, выразившего интерес, закрепляем за ответственным менеджером и отслеживаем результат мероприятия до закупки.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> стоимость квалифицированного контакта, первую и повторную закупку</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">04 / Операционное управление</span><h4>Продажи врачам и складская аналитика</h4>
+              <p>Ежемесячно получаем согласованные отчёты по отгрузкам производителя партнёру (sell-in, продажи в канал), продажам партнёра врачам (sell-out, продажи из канала) и остаткам по товарным позициям. Сопоставляем динамику с мероприятиями, сезонностью и частотой повторных заказов. На этой основе корректируем пополнение склада и поддержку отдельных продуктов, не считая переполненный склад ростом рыночного спроса.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> реальные продажи конечным профессиональным покупателям и дни запасов</div>
+            </article>
+            <article class="card segment-step">
+              <span class="segment-index">05 / Масштабирование</span><h4>Региональный план развития</h4>
+              <p>С каждым партнёром утверждаем поквартальный план: активные клиенты, продажи по категориям, образовательные события, охват городов и ресурсы команды. Производитель обеспечивает материалы, обучение и согласованную маркетинговую поддержку, а дистрибьютор назначает ответственных за выполнение плана. На регулярных встречах анализируем фактический спрос и решаем, где усиливать текущего партнёра, а где требуется новый канал сбыта.</p>
+              <div class="segment-kpi"><b>Измеряем:</b> рост активной базы, продаж врачам и прибыльности территории</div>
+            </article>
+          </div>
+        </div>
       </section>
       <section class="section" id="marketing">
         <p class="eyebrow">07 / Классический маркетинг</p>
@@ -417,7 +516,7 @@
       function onScroll(){var max=document.documentElement.scrollHeight-innerHeight;prog.style.width=(max>0?scrollY/max*100:0)+"%";var id="start";sections.forEach(function(s){if(s.getBoundingClientRect().top<=145){id=s.id;}});links.forEach(function(a){var active=a.getAttribute("href")==="#"+id;a.classList.toggle("active",active);if(active)a.setAttribute("aria-current","location");else a.removeAttribute("aria-current");});}
       window.addEventListener("scroll",onScroll,{passive:true});window.addEventListener("resize",onScroll);onScroll();
       document.querySelectorAll("[data-filter]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.filter;document.querySelectorAll("[data-filter]").forEach(function(x){x.classList.toggle("active",x===b);});document.querySelectorAll("[data-category]").forEach(function(c){c.hidden=(f!=="all"&&c.dataset.category!==f);});});});
-      document.querySelectorAll("[data-segment]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.segment;document.querySelectorAll("[data-segment]").forEach(function(x){x.classList.toggle("active",x===b);});document.querySelectorAll("[data-perspective]").forEach(function(p){p.classList.toggle("active",p.dataset.perspective===f);});});});
+      document.querySelectorAll("[data-segment]").forEach(function(b){b.addEventListener("click",function(){var f=b.dataset.segment;document.querySelectorAll("[data-segment]").forEach(function(x){var active=x===b;x.classList.toggle("active",active);x.setAttribute("aria-pressed",String(active));});document.querySelectorAll("[data-perspective]").forEach(function(p){p.classList.toggle("active",p.dataset.perspective===f);});});});
       var fmt = new Intl.NumberFormat("ru-RU");
       var inputs = ["clients","units","price"].map(function(id){return document.getElementById(id)});
       function money(v){return (v/1000000).toLocaleString("ru-RU",{minimumFractionDigits:1,maximumFractionDigits:1})+" млн ₽";}
